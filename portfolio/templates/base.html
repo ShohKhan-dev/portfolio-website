@@ -1,0 +1,86 @@
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'plugins/all.min.css' %}"> -->
+
+    <link rel="stylesheet" href="{% static 'fontawesome-free-5.15.4-web/css/all.css' %}">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+    <header class="header_area">
+        <div class="main-menu navbar_fixed">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a class="navbar-brand" href="#"><h3><strong>Shohjahon</strong></h3></a> 
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="mr-auto"></div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item {% if active_menu == 'main' %}active {% endif %}">
+                            <a class="nav-link" href="/">Home </a>
+                        </li>
+                        <li class="nav-item {% if active_menu == 'about' %}active {% endif %}">
+                            <a class="nav-link" href="{% url 'about' %}">about</a>
+                        </li>
+                        <li class="nav-item {% if active_menu == 'blogs' %}active {% endif %}">
+                            <a class="nav-link" href="{% url 'blogs' %}">blog</a>
+                        </li>
+                        <li class="nav-item {% if active_menu == 'projects' %}active {% endif %}">
+                            <a class="nav-link " href="{% url 'projects' %}">projects</a>
+                        </li>
+                        <li class="nav-item {% if active_menu == 'resume' %}active {% endif %}">
+                            <a class="nav-link" href="{% url 'resume' %}">resume</a>
+                        </li>
+                       
+                        <li class="nav-item {% if active_menu == 'contact' %}active {% endif %}">
+                            <a class="nav-link" href="{% url 'contact' %}">contact</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+
+
+        
+
+    {% block content %} {% endblock %}
+
+
+    </main>
+
+
+    <footer class="mt-auto">
+        <div class="container">
+            <div class="row">
+                <p>
+                    ©2022 Shohjahon
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
