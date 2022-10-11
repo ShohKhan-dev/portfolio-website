@@ -1,11 +1,13 @@
 from django.shortcuts import render
+from .models import MainInfo, Project, Resume
+
 
 # Create your views here.
 
 
 def index(request):
-
-    context = {'active_menu':'main'}
+    info = MainInfo.objects.get(id=1)
+    context = {'active_menu':'main', 'info': info}
     return render(request, 'index.html', context)
 
 
@@ -20,7 +22,6 @@ def blogs(request):
 
     
 
-
 def article(request):
     context = {'active_menu':'article'}
     return render(request, 'article.html', context)
@@ -32,7 +33,8 @@ def projects(request):
 
 
 def resume(request):
-    context = {'active_menu':'resume'}
+    resume = Resume.objects.get(id=1)
+    context = {'active_menu':'resume', 'resume':resume}
     return render(request, 'resume.html', context)
 
 
