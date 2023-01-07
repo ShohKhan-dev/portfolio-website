@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-_h_kbolh*#7tl)=ld_kk4n9$h7c=l+e#$@90kqvjhofwltuy^v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','shohjahon-portfolio.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','shohjahon-portfolio.herokuapp.com', '.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -132,13 +132,17 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-if DEBUG:
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'static')
 
-  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-else:
+# if DEBUG:
 
-  STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+# else:
+
+#   STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Default primary key field type
